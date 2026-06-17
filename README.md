@@ -26,7 +26,7 @@ pip install veda-timelapse
 
 ## Quick start
 
-**STAC mode (CLI):**
+**CLI:**
 
 ```sh
 veda-timelapse \
@@ -42,7 +42,7 @@ veda-timelapse \
   --out ./nyc-no2
 ```
 
-**CMR mode (Python):**
+**Python:**
 
 ```python
 from veda_timelapse import Config, run
