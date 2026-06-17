@@ -1,7 +1,8 @@
 """Coordinate data retrieval, compositing, frame writing, and HLS encoding.
 
-The pipeline supports two render modes: STAC through VEDA Raster API and CMR
-through titiler-cmr. It renders intermediate PNG frames to a configured or
+The pipeline supports two render modes: both use STAC, but differ in tiler backend —
+the default uses the VEDA Raster API, while the titiler-cmr mode uses titiler-cmr's
+xarray or rasterio backends. It renders intermediate PNG frames to a configured or
 temporary directory, then invokes ffmpeg to produce a video-on-demand HLS playlist.
 """
 

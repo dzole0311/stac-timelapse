@@ -1,8 +1,8 @@
 """Command line interface for veda-timelapse.
 
-The CLI mirrors the ``Config`` dataclass and supports STAC and CMR render modes.
-STAC is the default; CMR bypasses STAC collection lookup and validates its own
-required fields at runtime.
+The CLI mirrors the ``Config`` dataclass and supports two STAC render modes.
+The default uses the VEDA Raster API; the titiler-cmr mode uses titiler-cmr's
+xarray or rasterio backends and requires its own collection/variable fields.
 """
 
 from __future__ import annotations

@@ -1,9 +1,9 @@
-"""Render CMR-backed datasets through titiler-cmr.
+"""Render STAC datasets through titiler-cmr (xarray/rasterio backend).
 
-This mode bypasses STAC item search and asks titiler-cmr to resolve CMR granules
-for a specific temporal value. It is useful for collections such as GPM IMERG
-where CMR is the source of truth. The returned PNG is post-processed locally so
-very bright dry/no-data pixels can reveal the basemap underneath.
+This mode queries STAC collections via titiler-cmr instead of the VEDA Raster API.
+It is useful for collections such as GPM IMERG that are served through titiler-cmr's
+xarray or rasterio backends. The returned PNG is post-processed locally so very
+bright dry/no-data pixels can reveal the basemap underneath.
 """
 
 from __future__ import annotations
