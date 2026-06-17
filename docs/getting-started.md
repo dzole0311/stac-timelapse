@@ -151,6 +151,6 @@ Open `http://localhost:8080/index.m3u8` in [HLS.js demo](https://hlsjs.video-dev
 
 ## Visualize on a globe or map
 
-To render the HLS output on an interactive 2D/3D map, see [hls-streaming-layer](https://github.com/dzole0311/hls-streaming-layer), an actively developed library for streaming HLS video on Mapbox GL in 2D and globe projections (MapLibre GL and deck.gl support in development). Point it at the `index.m3u8` produced by veda-timelapse.
+To render the HLS output on an interactive 2D/3D map, see [hls-streaming-layer](https://github.com/dzole0311/hls-streaming-layer), a glue library for streaming HLS video on Mapbox GL in 2D and globe projections. Point it at the `index.m3u8` produced by veda-timelapse.
 
 More map integration examples are coming soon.
