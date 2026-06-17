@@ -1,5 +1,7 @@
 # veda-timelapse
 
+**Docs:** https://dzole0311.github.io/veda-timelapse/
+
 Turn NASA Earth observation data into HLS video streams. Composites a basemap, data layer, colorbar, and timestamp into PNG frames, then encodes them to `index.m3u8`.
 
 Two render modes:
