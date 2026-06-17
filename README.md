@@ -21,7 +21,7 @@ apt-get install ffmpeg     # Debian/Ubuntu
 Install the package:
 
 ```sh
-pip install -e .
+pip install veda-timelapse
 ```
 
 ## Quick start

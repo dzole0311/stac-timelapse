@@ -8,6 +8,32 @@ Daily precipitation from GPM IMERG over the Atlantic hurricane belt, June throug
   <source src="../media/gpm_precipitation.mp4" type="video/mp4">
 </video>
 
+**CLI**
+
+```sh
+veda-timelapse \
+  --use-cmr \
+  --cmr-collection-concept-id C2723754864-GES_DISC \
+  --cmr-variable precipitation \
+  --cmr-date-frequency daily \
+  --start 2024-06-01 \
+  --end 2024-10-31 \
+  --bbox "-100,5,-40,35" \
+  --width 960 \
+  --height 540 \
+  --rescale "0,48" \
+  --colormap blues \
+  --fps 4 \
+  --basemap \
+  --basemap-style boundaries \
+  --data-opacity 0.75 \
+  --colorbar-label "Precipitation (mm/day)" \
+  --title "GPM IMERG Atlantic Jun-Oct 2024" \
+  --out ./gpm-imerg
+```
+
+**Python**
+
 ```python
 from veda_timelapse import Config, run
 
@@ -46,6 +72,34 @@ Daily precipitation from GPM IMERG at global scale, June through October 2024.
 <video controls width="100%" style="border-radius:6px">
   <source src="../media/gpm_imerg_global.mp4" type="video/mp4">
 </video>
+
+**CLI**
+
+```sh
+veda-timelapse \
+  --use-cmr \
+  --cmr-collection-concept-id C2723754864-GES_DISC \
+  --cmr-variable precipitation \
+  --cmr-date-frequency daily \
+  --start 2024-06-01 \
+  --end 2024-10-31 \
+  --bbox "-180,-70,180,75" \
+  --width 1920 \
+  --height 960 \
+  --rescale "0,48" \
+  --colormap blues \
+  --cmr-dry-luminance-threshold 255.0 \
+  --fps 6 \
+  --basemap \
+  --basemap-style boundaries \
+  --data-opacity 0.85 \
+  --colorbar-label "Precipitation (mm/day)" \
+  --label-color "20,20,20" \
+  --title "GPM IMERG Global Jun-Oct 2024" \
+  --out ./gpm-imerg-global
+```
+
+**Python**
 
 ```python
 from veda_timelapse import Config, run
