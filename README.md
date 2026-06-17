@@ -26,7 +26,23 @@ pip install veda-timelapse
 
 ## Quick start
 
-**CMR mode (GPM IMERG global precipitation):**
+**STAC mode (CLI):**
+
+```sh
+veda-timelapse \
+  --collection no2-monthly \
+  --start 2022-01-01 \
+  --end 2022-12-31 \
+  --bbox "-74.3,40.4,-73.6,40.9" \
+  --assets cog_default \
+  --colormap rdbu \
+  --rescale "0,75" \
+  --colorbar-label "NO2 column" \
+  --title "New York City NO2 2022" \
+  --out ./nyc-no2
+```
+
+**CMR mode (Python):**
 
 ```python
 from veda_timelapse import Config, run
@@ -51,22 +67,6 @@ cfg = Config(
 
 playlist = run(cfg)
 print(playlist)
-```
-
-**STAC mode (CLI):**
-
-```sh
-veda-timelapse \
-  --collection no2-monthly \
-  --start 2022-01-01 \
-  --end 2022-12-31 \
-  --bbox "-74.3,40.4,-73.6,40.9" \
-  --assets cog_default \
-  --colormap rdbu \
-  --rescale "0,75" \
-  --colorbar-label "NO2 column" \
-  --title "New York City NO2 2022" \
-  --out ./nyc-no2
 ```
 
 ## S3 upload
