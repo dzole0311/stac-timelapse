@@ -23,7 +23,7 @@ Output is `gpm-global/index.m3u8` plus `.ts` segments.
 
 ## How it works
 
-1. Queries STAC or CMR for each requested timestep
+1. Queries STAC for each requested timestep
 2. Fetches a rendered PNG for each timestep
 3. Composites a basemap underneath the data (satellite imagery or country boundaries)
 4. Draws a colorbar and timestamp label on each frame
@@ -32,9 +32,11 @@ Output is `gpm-global/index.m3u8` plus `.ts` segments.
 
 ## Render modes
 
-**STAC** is the default. Queries the VEDA STAC catalog and renders each item through the VEDA Raster API (titiler-pgstac).
+Both modes use STAC. The difference is the tiler backend.
 
-**CMR** queries CMR granules through titiler-cmr. Useful for collections in NASA CMR that are not in the VEDA STAC catalog.
+**Raster API** (default) renders each STAC item through the VEDA Raster API (titiler-pgstac).
+
+**titiler-cmr** renders STAC items through titiler-cmr's xarray or rasterio backends. Useful for collections like GPM IMERG that are served via titiler-cmr.
 
 ## Deployment
 

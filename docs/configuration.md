@@ -6,15 +6,15 @@ Every option can be set on the `Config` dataclass in Python. Most are also avail
 
 ## Render mode
 
-Pick one mode per run. STAC is the default.
+Both modes use STAC. The default renders through the VEDA Raster API; the titiler-cmr mode uses titiler-cmr's xarray or rasterio backends instead.
 
 | Option | Default | Description |
 |---|---|---|
-| `--use-cmr` | off | Use CMR mode instead of STAC |
+| `--use-cmr` | off | Use titiler-cmr backend instead of the Raster API |
 
 ---
 
-## STAC mode
+## Raster API mode (default)
 
 | Option | Default | Description |
 |---|---|---|
@@ -28,11 +28,11 @@ Pick one mode per run. STAC is the default.
 
 ---
 
-## CMR mode
+## titiler-cmr mode
 
 | Option | Default | Description |
 |---|---|---|
-| `--cmr-collection-concept-id` | required | CMR collection concept ID |
+| `--cmr-collection-concept-id` | required | STAC collection concept ID |
 | `--cmr-variable` | required | Variable name |
 | `--cmr-backend` | `xarray` | titiler-cmr backend: `xarray` or `rasterio` |
 | `--cmr-date-frequency` | `daily` | Cadence: `30min`, `daily`, or `monthly` |

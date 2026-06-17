@@ -38,9 +38,9 @@ The playlist is written to `./nyc-no2/index.m3u8`.
 
 Use `--stac-api` and `--raster-api` to point at a different endpoint.
 
-## CMR mode
+## titiler-cmr mode
 
-Fetches CMR granules through titiler-cmr without going through the VEDA STAC catalog.
+Renders STAC collections through titiler-cmr (xarray or rasterio backend) instead of the Raster API.
 
 ```sh
 veda-timelapse \
