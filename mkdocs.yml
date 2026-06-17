@@ -1,0 +1,44 @@
+site_name: veda-timelapse
+site_description: Turn VEDA/STAC datasets into NASA SVS-style HLS video streams
+site_url: https://dzole0311.github.io/veda-timelapse
+repo_url: https://github.com/dzole0311/veda-timelapse
+repo_name: dzole0311/veda-timelapse
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+  font:
+    text: Inter
+    code: JetBrains Mono
+  features:
+    - navigation.instant
+    - navigation.sections
+    - content.code.copy
+    - content.code.annotate
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - Examples: examples.md
+  - Configuration: configuration.md
+  - API Reference: api.md
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            show_source: false
+            show_root_heading: true
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - admonition
+  - pymdownx.details

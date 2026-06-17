@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+
+# Matplotlib
+.matplotlib-cache/
+
+# Render output
+frames/
+live-renders/
+output/
+*_hls/
+gpm-imerg-*/
+nyc-no2/
+*.m3u8
+*.ts
+
+# Media cache
+.cache/
+
+# Docs build
+site/
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+
+# Env
+.env
+*.env
+

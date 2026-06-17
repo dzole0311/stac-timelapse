@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "veda-timelapse"
+version = "0.1.0"
+description = "Render VEDA/STAC datasets into NASA SVS-style HLS video streams."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "requests",
+    "pystac-client",
+    "Pillow",
+    "matplotlib",
+    "numpy",
+    "xarray",
+    "netCDF4",
+    "mercantile",
+    "tqdm",
+    "click",
+]
+
+[project.optional-dependencies]
+aws = ["boto3"]
+server = ["fastapi", "uvicorn[standard]", "boto3"]
+all = ["boto3", "fastapi", "uvicorn[standard]"]
+
+[project.scripts]
+veda-timelapse = "cli:main"
+
+[tool.setuptools]
+packages = ["veda_timelapse"]
+py-modules = ["cli"]
