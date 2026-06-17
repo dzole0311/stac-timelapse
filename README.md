@@ -2,12 +2,7 @@
 
 **Docs:** https://dzole0311.github.io/veda-timelapse/
 
-Generate GLS video streams from STAC collections. Composites a basemap, data layer, colorbar, and timestamp into PNG frames, then encodes them to `index.m3u8`.
-
-Two render modes:
-
-- **STAC** -- renders VEDA STAC collections through the VEDA Raster API
-- **CMR** -- renders CMR granules through titiler-cmr (e.g. GPM IMERG)
+Generate HLS video streams from STAC collections. Composites a basemap, data layer, colorbar, and timestamp into PNG frames, then encodes them to `index.m3u8`.
 
 ## Requirements
 
