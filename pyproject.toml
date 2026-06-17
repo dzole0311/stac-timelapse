@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "veda-timelapse"
 version = "0.1.0"
-description = "Render VEDA/STAC datasets into NASA SVS-style HLS video streams."
+description = "Generate timelapse HLS streams from STAC collections."
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
