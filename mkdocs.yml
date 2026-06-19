@@ -1,8 +1,8 @@
-site_name: veda-timelapse
+site_name: stac-timelapse
 site_description: Generate timelapse HLS streams from STAC collections
-site_url: https://dzole0311.github.io/veda-timelapse
-repo_url: https://github.com/dzole0311/veda-timelapse
-repo_name: dzole0311/veda-timelapse
+site_url: https://dzole0311.github.io/stac-timelapse
+repo_url: https://github.com/dzole0311/stac-timelapse
+repo_name: dzole0311/stac-timelapse
 
 theme:
   name: material

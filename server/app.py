@@ -21,7 +21,7 @@ import botocore.exceptions
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
-app = FastAPI(title="veda-timelapse", version="0.1.0")
+app = FastAPI(title="stac-timelapse", version="0.1.0")
 
 _SQS_QUEUE_URL = os.environ["SQS_QUEUE_URL"]
 _S3_BUCKET = os.environ["S3_BUCKET"]
