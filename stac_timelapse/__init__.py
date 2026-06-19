@@ -15,4 +15,4 @@ def run(cfg: Config) -> Path:
     return _run(cfg)
 
 __all__ = ["Config", "run"]
-__version__ = "0.1.0"
+__version__ = "0.1.2"
