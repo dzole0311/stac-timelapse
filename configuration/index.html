@@ -1,0 +1,1193 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Generate timelapse HLS streams from STAC collections">
+      
+      
+      
+        <link rel="canonical" href="https://dzole0311.github.io/stac-timelapse/configuration/">
+      
+      
+        <link rel="prev" href="../examples/">
+      
+      
+        <link rel="next" href="../api/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Configuration - stac-timelapse</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#configuration" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="stac-timelapse" class="md-header__button md-logo" aria-label="stac-timelapse" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            stac-timelapse
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Configuration
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dzole0311/stac-timelapse" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    dzole0311/stac-timelapse
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="stac-timelapse" class="md-nav__button md-logo" aria-label="stac-timelapse" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    stac-timelapse
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dzole0311/stac-timelapse" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    dzole0311/stac-timelapse
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#render-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Render mode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#raster-api-mode-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Raster API mode (default)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#titiler-cmr-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        titiler-cmr mode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#date-and-area" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Date and area
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rendering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rendering
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basemap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basemap
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#colorbar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Colorbar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Labels
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caching-and-downloads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caching and downloads
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        S3 output
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Encoding
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#render-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Render mode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#raster-api-mode-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Raster API mode (default)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#titiler-cmr-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        titiler-cmr mode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#date-and-area" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Date and area
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rendering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rendering
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basemap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basemap
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#colorbar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Colorbar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Labels
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caching-and-downloads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caching and downloads
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        S3 output
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Encoding
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="configuration">Configuration</h1>
+<p>Every option can be set on the <code>Config</code> dataclass in Python. Most are also available as CLI flags.</p>
+<hr />
+<h2 id="render-mode">Render mode</h2>
+<p>Both modes use STAC. The default renders through the Raster API; the titiler-cmr mode uses titiler-cmr's xarray or rasterio backends instead.</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--use-cmr</code></td>
+<td>off</td>
+<td>Use titiler-cmr backend instead of the Raster API</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="raster-api-mode-default">Raster API mode (default)</h2>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--collection</code></td>
+<td>required</td>
+<td>STAC collection ID</td>
+</tr>
+<tr>
+<td><code>--assets</code></td>
+<td></td>
+<td>Comma-separated asset names, e.g. <code>cog_default</code></td>
+</tr>
+<tr>
+<td><code>--expression</code></td>
+<td></td>
+<td>Band math expression</td>
+</tr>
+<tr>
+<td><code>--algorithm</code></td>
+<td></td>
+<td>Raster API algorithm name</td>
+</tr>
+<tr>
+<td><code>--stac-api</code></td>
+<td><code>https://openveda.cloud/api/stac</code></td>
+<td>STAC API root</td>
+</tr>
+<tr>
+<td><code>--raster-api</code></td>
+<td><code>https://openveda.cloud/api/raster</code></td>
+<td>Raster API root</td>
+</tr>
+<tr>
+<td><code>--auth-token</code></td>
+<td>env <code>STAC_TIMELAPSE_TOKEN</code></td>
+<td>Bearer token for private collections</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="titiler-cmr-mode">titiler-cmr mode</h2>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--cmr-collection-concept-id</code></td>
+<td>required</td>
+<td>STAC collection concept ID</td>
+</tr>
+<tr>
+<td><code>--cmr-variable</code></td>
+<td>required</td>
+<td>Variable name</td>
+</tr>
+<tr>
+<td><code>--cmr-backend</code></td>
+<td><code>xarray</code></td>
+<td>titiler-cmr backend: <code>xarray</code> or <code>rasterio</code></td>
+</tr>
+<tr>
+<td><code>--cmr-date-frequency</code></td>
+<td><code>daily</code></td>
+<td>Cadence: <code>30min</code>, <code>daily</code>, or <code>monthly</code></td>
+</tr>
+<tr>
+<td><code>--cmr-dry-luminance-threshold</code></td>
+<td><code>230.0</code></td>
+<td>Pixels brighter than this become transparent</td>
+</tr>
+<tr>
+<td><code>--cmr-tiler-url</code></td>
+<td><code>https://openveda.cloud/api/titiler-cmr</code></td>
+<td>titiler-cmr service root</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="date-and-area">Date and area</h2>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--start</code></td>
+<td>required</td>
+<td>Start date or ISO timestamp</td>
+</tr>
+<tr>
+<td><code>--end</code></td>
+<td>required</td>
+<td>End date or ISO timestamp</td>
+</tr>
+<tr>
+<td><code>--bbox</code></td>
+<td>required</td>
+<td><code>west,south,east,north</code> in decimal degrees</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="rendering">Rendering</h2>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--colormap</code></td>
+<td><code>rdbu</code></td>
+<td>Matplotlib colormap name</td>
+</tr>
+<tr>
+<td><code>--rescale</code></td>
+<td><code>0,3000</code></td>
+<td><code>min,max</code> data range</td>
+</tr>
+<tr>
+<td><code>--width</code></td>
+<td><code>1920</code></td>
+<td>Frame width in pixels</td>
+</tr>
+<tr>
+<td><code>--height</code></td>
+<td><code>1080</code></td>
+<td>Frame height in pixels</td>
+</tr>
+<tr>
+<td><code>--fps</code></td>
+<td><code>10</code></td>
+<td>Frames per second</td>
+</tr>
+<tr>
+<td><code>--frame-hold</code></td>
+<td><code>1</code></td>
+<td>Repeat each frame N times</td>
+</tr>
+<tr>
+<td><code>--data-blur-radius</code></td>
+<td><code>0.0</code></td>
+<td>Gaussian blur on the data layer</td>
+</tr>
+<tr>
+<td><code>--data-opacity</code></td>
+<td><code>0.85</code></td>
+<td>Data layer opacity (0 to 1)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="basemap">Basemap</h2>
+<p>Two styles are available. <code>boundaries</code> draws Natural Earth country outlines with matplotlib and works fully offline after the first GeoJSON fetch. <code>satellite</code> fetches and stitches NASA GIBS Blue Marble tiles.</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--no-basemap</code></td>
+<td>off</td>
+<td>Disable basemap entirely</td>
+</tr>
+<tr>
+<td><code>--basemap-style</code></td>
+<td><code>boundaries</code></td>
+<td><code>boundaries</code> for country outlines, <code>satellite</code> for NASA GIBS imagery</td>
+</tr>
+<tr>
+<td><code>--basemap-layer</code></td>
+<td><code>BlueMarble_ShadedRelief_Bathymetry</code></td>
+<td>NASA GIBS layer name (satellite style only)</td>
+</tr>
+<tr>
+<td><code>--basemap-max-zoom</code></td>
+<td><code>8</code></td>
+<td>Maximum GIBS tile zoom level (satellite style only)</td>
+</tr>
+<tr>
+<td><code>--basemap-tile-workers</code></td>
+<td><code>16</code></td>
+<td>Parallel tile downloads (satellite style only)</td>
+</tr>
+<tr>
+<td><code>--basemap-opacity</code></td>
+<td><code>1.0</code></td>
+<td>Basemap opacity (0 to 1)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="colorbar">Colorbar</h2>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--no-colorbar</code></td>
+<td>off</td>
+<td>Disable colorbar</td>
+</tr>
+<tr>
+<td><code>--colorbar-label</code></td>
+<td></td>
+<td>Unit label, e.g. <code>NO2 column</code></td>
+</tr>
+<tr>
+<td><code>--colorbar-width</code></td>
+<td><code>30</code></td>
+<td>Width in pixels</td>
+</tr>
+<tr>
+<td><code>--colorbar-height</code></td>
+<td><code>300</code></td>
+<td>Height in pixels</td>
+</tr>
+<tr>
+<td><code>--colorbar-position</code></td>
+<td><code>bottom-right</code></td>
+<td><code>top-left</code>, <code>top-right</code>, <code>bottom-left</code>, or <code>bottom-right</code></td>
+</tr>
+<tr>
+<td><code>--colorbar-ticks</code></td>
+<td><code>5</code></td>
+<td>Number of tick labels</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="labels">Labels</h2>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--title</code></td>
+<td></td>
+<td>Title drawn top-left on every frame</td>
+</tr>
+<tr>
+<td><code>--no-show-date</code></td>
+<td>off</td>
+<td>Hide the date stamp</td>
+</tr>
+<tr>
+<td><code>--date-format</code></td>
+<td><code>%Y-%m-%d</code></td>
+<td>Python <code>strftime</code> format</td>
+</tr>
+<tr>
+<td><code>--font-size</code></td>
+<td><code>36</code></td>
+<td>Label font size</td>
+</tr>
+<tr>
+<td><code>--label-color</code></td>
+<td><code>255,255,255</code></td>
+<td>Label color as <code>r,g,b</code></td>
+</tr>
+<tr>
+<td><code>--label-shadow-offset</code></td>
+<td><code>2</code></td>
+<td>Drop shadow offset in pixels</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="caching-and-downloads">Caching and downloads</h2>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--cache-dir</code></td>
+<td><code>~/.cache/stac_timelapse</code></td>
+<td>Cache root for GIBS tiles and downloaded data</td>
+</tr>
+<tr>
+<td><code>--download-retries</code></td>
+<td><code>3</code></td>
+<td>Retry attempts for failed downloads</td>
+</tr>
+<tr>
+<td><code>--download-timeout</code></td>
+<td><code>180</code></td>
+<td>Per-request timeout in seconds</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="s3-output">S3 output</h2>
+<p>When <code>s3_bucket</code> is set the HLS output is uploaded to S3 after the local encode. Requires <code>pip install stac-timelapse[aws]</code> and standard AWS credentials (<code>AWS_ACCESS_KEY_ID</code> / instance role / <code>~/.aws/credentials</code>).</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--s3-bucket</code></td>
+<td></td>
+<td>S3 bucket name. If omitted, output stays on local disk</td>
+</tr>
+<tr>
+<td><code>--s3-prefix</code></td>
+<td><code>renders</code></td>
+<td>Key prefix inside the bucket</td>
+</tr>
+<tr>
+<td><code>--s3-public</code></td>
+<td>off</td>
+<td>Set <code>ACL=public-read</code> on uploaded objects</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="encoding">Encoding</h2>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--out</code></td>
+<td><code>./output</code></td>
+<td>Local output directory (also used as staging area when uploading to S3)</td>
+</tr>
+<tr>
+<td><code>--frames-dir</code></td>
+<td></td>
+<td>Keep intermediate PNG frames here instead of a temp dir</td>
+</tr>
+<tr>
+<td><code>--hls-segment-duration</code></td>
+<td><code>4</code></td>
+<td>HLS segment length in seconds</td>
+</tr>
+<tr>
+<td><code>--video-codec</code></td>
+<td><code>libx264</code></td>
+<td>ffmpeg video codec</td>
+</tr>
+<tr>
+<td><code>--crf</code></td>
+<td><code>18</code></td>
+<td>ffmpeg CRF quality (lower = better)</td>
+</tr>
+<tr>
+<td><code>--preset</code></td>
+<td><code>slow</code></td>
+<td>ffmpeg encoding speed preset</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.sections", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
