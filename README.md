@@ -1,6 +1,6 @@
-# veda-timelapse
+# stac-timelapse
 
-**Docs:** https://dzole0311.github.io/veda-timelapse/
+**Docs:** https://dzole0311.github.io/stac-timelapse/
 
 Generate HLS video streams from STAC collections. Composites a basemap, data layer, colorbar, and timestamp into PNG frames, then encodes them to `index.m3u8`.
 
@@ -16,7 +16,7 @@ apt-get install ffmpeg     # Debian/Ubuntu
 Install the package:
 
 ```sh
-pip install veda-timelapse
+pip install stac-timelapse
 ```
 
 ## Quick start
@@ -24,7 +24,7 @@ pip install veda-timelapse
 **CLI:**
 
 ```sh
-veda-timelapse \
+stac-timelapse \
   --collection no2-monthly \
   --start 2022-01-01 \
   --end 2022-12-31 \
@@ -40,7 +40,7 @@ veda-timelapse \
 **Python:**
 
 ```python
-from veda_timelapse import Config, run
+from stac_timelapse import Config, run
 
 cfg = Config(
     use_cmr=True,
@@ -76,7 +76,7 @@ cfg = Config(
 )
 ```
 
-Requires `pip install veda-timelapse[aws]` and standard AWS credentials.
+Requires `pip install stac-timelapse[aws]` and standard AWS credentials.
 
 ## Docs
 

@@ -1,12 +1,12 @@
-# veda-timelapse
+# stac-timelapse
 
-Takes VEDA datasets and produces HLS video streams with a basemap, data layer, colorbar, and timestamp on each frame. Output goes to local disk or directly to S3.
+Takes STAC datasets and produces HLS video streams with a basemap, data layer, colorbar, and timestamp on each frame. Output goes to local disk or directly to S3.
 
 !!! warning "Experimental"
     This project is under active development. APIs and configuration options may change without notice.
 
 ```sh
-veda-timelapse \
+stac-timelapse \
   --use-cmr \
   --cmr-collection-concept-id C2723754864-GES_DISC \
   --cmr-variable precipitation \
@@ -34,7 +34,7 @@ Output is `gpm-global/index.m3u8` plus `.ts` segments.
 
 Both modes use STAC. The difference is the tiler backend.
 
-**Raster API** (default) renders each STAC item through the VEDA Raster API (titiler-pgstac).
+**Raster API** (default) renders each STAC item through the Raster API (titiler-pgstac).
 
 **titiler-cmr** renders STAC items through titiler-cmr's xarray or rasterio backends. Useful for collections like GPM IMERG that are served via titiler-cmr.
 
@@ -48,8 +48,8 @@ Runs locally with no AWS dependency. For large renders, a FastAPI + SQS + EC2 de
 - `ffmpeg` on `PATH`
 
 ```sh
-pip install veda-timelapse        # local use
-pip install veda-timelapse[aws]   # + S3 upload
-pip install veda-timelapse[server] # + FastAPI/SQS server
+pip install stac-timelapse        # local use
+pip install stac-timelapse[aws]   # + S3 upload
+pip install stac-timelapse[server] # + FastAPI/SQS server
 brew install ffmpeg               # macOS
 ```

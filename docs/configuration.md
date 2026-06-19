@@ -6,7 +6,7 @@ Every option can be set on the `Config` dataclass in Python. Most are also avail
 
 ## Render mode
 
-Both modes use STAC. The default renders through the VEDA Raster API; the titiler-cmr mode uses titiler-cmr's xarray or rasterio backends instead.
+Both modes use STAC. The default renders through the Raster API; the titiler-cmr mode uses titiler-cmr's xarray or rasterio backends instead.
 
 | Option | Default | Description |
 |---|---|---|
@@ -18,13 +18,13 @@ Both modes use STAC. The default renders through the VEDA Raster API; the titile
 
 | Option | Default | Description |
 |---|---|---|
-| `--collection` | required | VEDA STAC collection ID |
+| `--collection` | required | STAC collection ID |
 | `--assets` | | Comma-separated asset names, e.g. `cog_default` |
 | `--expression` | | Band math expression |
 | `--algorithm` | | Raster API algorithm name |
 | `--stac-api` | `https://openveda.cloud/api/stac` | STAC API root |
 | `--raster-api` | `https://openveda.cloud/api/raster` | Raster API root |
-| `--auth-token` | env `VEDA_TIMELAPSE_TOKEN` | Bearer token for private collections |
+| `--auth-token` | env `STAC_TIMELAPSE_TOKEN` | Bearer token for private collections |
 
 ---
 
@@ -111,7 +111,7 @@ Two styles are available. `boundaries` draws Natural Earth country outlines with
 
 | Option | Default | Description |
 |---|---|---|
-| `--cache-dir` | `~/.cache/veda_timelapse` | Cache root for GIBS tiles and downloaded data |
+| `--cache-dir` | `~/.cache/stac_timelapse` | Cache root for GIBS tiles and downloaded data |
 | `--download-retries` | `3` | Retry attempts for failed downloads |
 | `--download-timeout` | `180` | Per-request timeout in seconds |
 
@@ -119,7 +119,7 @@ Two styles are available. `boundaries` draws Natural Earth country outlines with
 
 ## S3 output
 
-When `s3_bucket` is set the HLS output is uploaded to S3 after the local encode. Requires `pip install veda-timelapse[aws]` and standard AWS credentials (`AWS_ACCESS_KEY_ID` / instance role / `~/.aws/credentials`).
+When `s3_bucket` is set the HLS output is uploaded to S3 after the local encode. Requires `pip install stac-timelapse[aws]` and standard AWS credentials (`AWS_ACCESS_KEY_ID` / instance role / `~/.aws/credentials`).
 
 | Option | Default | Description |
 |---|---|---|

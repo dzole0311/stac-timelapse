@@ -11,7 +11,7 @@ Daily precipitation from GPM IMERG over the Atlantic hurricane belt, June throug
 **CLI**
 
 ```sh
-veda-timelapse \
+stac-timelapse \
   --use-cmr \
   --cmr-collection-concept-id C2723754864-GES_DISC \
   --cmr-variable precipitation \
@@ -35,7 +35,7 @@ veda-timelapse \
 **Python**
 
 ```python
-from veda_timelapse import Config, run
+from stac_timelapse import Config, run
 
 cfg = Config(
     use_cmr=True,
@@ -76,7 +76,7 @@ Daily precipitation from GPM IMERG at global scale, June through October 2024.
 **CLI**
 
 ```sh
-veda-timelapse \
+stac-timelapse \
   --use-cmr \
   --cmr-collection-concept-id C2723754864-GES_DISC \
   --cmr-variable precipitation \
@@ -102,7 +102,7 @@ veda-timelapse \
 **Python**
 
 ```python
-from veda_timelapse import Config, run
+from stac_timelapse import Config, run
 
 cfg = Config(
     use_cmr=True,

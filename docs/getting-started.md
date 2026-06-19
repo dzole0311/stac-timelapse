@@ -8,19 +8,19 @@
 Python 3.11 or newer is required. `ffmpeg` must be on `PATH`.
 
 ```sh
-pip install veda-timelapse           # local rendering only
-pip install veda-timelapse[aws]      # + S3 upload
-pip install veda-timelapse[server]   # + FastAPI/SQS job server
+pip install stac-timelapse           # local rendering only
+pip install stac-timelapse[aws]      # + S3 upload
+pip install stac-timelapse[server]   # + FastAPI/SQS job server
 brew install ffmpeg                  # macOS
 apt install ffmpeg                   # Ubuntu / Debian
 ```
 
 ## STAC mode
 
-Queries the VEDA STAC catalog and renders through the VEDA Raster API.
+Queries a STAC catalog and renders through the Raster API.
 
 ```sh
-veda-timelapse \
+stac-timelapse \
   --collection no2-monthly \
   --start 2022-01-01 \
   --end 2022-12-31 \
@@ -43,7 +43,7 @@ Use `--stac-api` and `--raster-api` to point at a different endpoint.
 Renders STAC collections through titiler-cmr (xarray or rasterio backend) instead of the Raster API.
 
 ```sh
-veda-timelapse \
+stac-timelapse \
   --use-cmr \
   --cmr-collection-concept-id C2723754864-GES_DISC \
   --cmr-variable precipitation \
@@ -62,7 +62,7 @@ veda-timelapse \
 ## Python API
 
 ```python
-from veda_timelapse import Config, run
+from stac_timelapse import Config, run
 
 cfg = Config(
     use_cmr=True,
@@ -99,7 +99,7 @@ cfg = Config(
 s3_url = run(cfg)  # returns s3://my-bucket/renders/gpm-global/index.m3u8
 ```
 
-Requires `pip install veda-timelapse[aws]` and AWS credentials available in the environment.
+Requires `pip install stac-timelapse[aws]` and AWS credentials available in the environment.
 
 ## EC2 deployment
 
@@ -108,19 +108,19 @@ For large or automated renders, run the job server on EC2. The same Docker image
 **Prerequisites:** an SQS queue and an S3 bucket. The EC2 instance role needs `sqs:*` on the queue and `s3:PutObject` on the bucket.
 
 ```sh
-docker build -t veda-timelapse .
+docker build -t stac-timelapse .
 
 # API server (accepts job submissions)
 docker run -p 8000:8000 \
   -e SQS_QUEUE_URL=https://sqs.us-east-1.amazonaws.com/123456789/veda-jobs \
   -e S3_BUCKET=my-bucket \
-  veda-timelapse
+  stac-timelapse
 
 # Worker (polls SQS, runs renders, uploads to S3)
 docker run \
   -e SQS_QUEUE_URL=https://sqs.us-east-1.amazonaws.com/123456789/veda-jobs \
   -e S3_BUCKET=my-bucket \
-  veda-timelapse python server/worker.py
+  stac-timelapse python server/worker.py
 ```
 
 Submit a job:
@@ -151,6 +151,6 @@ Open `http://localhost:8080/index.m3u8` in [HLS.js demo](https://hlsjs.video-dev
 
 ## Visualize on a globe or map
 
-To render the HLS output on an interactive 2D/3D map, see [hls-streaming-layer](https://github.com/dzole0311/hls-streaming-layer), a glue library for streaming HLS video on Mapbox GL in 2D and globe projections. Point it at the `index.m3u8` produced by veda-timelapse.
+To render the HLS output on an interactive 2D/3D map, see [hls-streaming-layer](https://github.com/dzole0311/hls-streaming-layer), a glue library for streaming HLS video on Mapbox GL in 2D and globe projections. Point it at the `index.m3u8` produced by stac-timelapse.
 
 More map integration examples are coming soon.
