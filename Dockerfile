@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 WORKDIR /app
 
 COPY pyproject.toml .
-COPY veda_timelapse/ veda_timelapse/
+COPY stac_timelapse/ stac_timelapse/
 COPY cli.py .
 COPY server/ server/
 

@@ -1,7 +1,7 @@
-"""Command line interface for veda-timelapse.
+"""Command line interface for stac-timelapse.
 
 The CLI mirrors the ``Config`` dataclass and supports two STAC render modes.
-The default uses the VEDA Raster API; the titiler-cmr mode uses titiler-cmr's
+The default uses the Raster API; the titiler-cmr mode uses titiler-cmr's
 xarray or rasterio backends and requires its own collection/variable fields.
 """
 
@@ -12,14 +12,14 @@ from typing import Any
 
 import click
 
-from veda_timelapse import Config, run
-from veda_timelapse.config import clean_optional, parse_bbox, parse_csv, parse_rgb
+from stac_timelapse import Config, run
+from stac_timelapse.config import clean_optional, parse_bbox, parse_csv, parse_rgb
 
 
 @click.command(context_settings={"help_option_names": ["-h", "--help"]})
 @click.option("--stac-api", default=Config.stac_api, show_default=True)
 @click.option("--raster-api", default=Config.raster_api, show_default=True)
-@click.option("--auth-token", envvar="VEDA_TIMELAPSE_TOKEN")
+@click.option("--auth-token", envvar="STAC_TIMELAPSE_TOKEN")
 @click.option(
     "-c",
     "--collection",
@@ -145,7 +145,7 @@ from veda_timelapse.config import clean_optional, parse_bbox, parse_csv, parse_r
 @click.option("--preset", default=Config.preset, show_default=True)
 @click.option("-v", "--verbose", is_flag=True, help="Enable verbose logging.")
 def main(**kwargs: Any) -> None:
-    """Render a VEDA/STAC collection into an HLS video stream."""
+    """Render a STAC collection into an HLS video stream."""
 
     verbose = kwargs.pop("verbose")
     logging.basicConfig(

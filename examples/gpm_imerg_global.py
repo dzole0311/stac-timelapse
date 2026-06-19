@@ -4,7 +4,7 @@ GPM IMERG daily precipitation — global, Jun–Oct 2024.
 Boundaries basemap so no-data land areas render as light colour with country
 outlines only, making global coverage gaps immediately visible.
 """
-from veda_timelapse import Config, run
+from stac_timelapse import Config, run
 
 cfg = Config(
     use_cmr=True,

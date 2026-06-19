@@ -1,7 +1,7 @@
 """Upload HLS output (m3u8 + segments) to S3.
 
 Only imported when ``Config.s3_bucket`` is set. boto3 is an optional
-dependency; install with ``pip install veda-timelapse[aws]``.
+dependency; install with ``pip install stac-timelapse[aws]``.
 """
 
 from __future__ import annotations
@@ -25,7 +25,7 @@ def upload(output_dir: Path, bucket: str, prefix: str, public: bool = False) -> 
         import boto3
     except ImportError as exc:
         raise ImportError(
-            "boto3 is required for S3 upload. Install with: pip install veda-timelapse[aws]"
+            "boto3 is required for S3 upload. Install with: pip install stac-timelapse[aws]"
         ) from exc
 
     s3 = boto3.client("s3")

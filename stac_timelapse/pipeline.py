@@ -1,7 +1,7 @@
 """Coordinate data retrieval, compositing, frame writing, and HLS encoding.
 
 The pipeline supports two render modes: both use STAC, but differ in tiler backend —
-the default uses the VEDA Raster API, while the titiler-cmr mode uses titiler-cmr's
+the default uses the Raster API, while the titiler-cmr mode uses titiler-cmr's
 xarray or rasterio backends. It renders intermediate PNG frames to a configured or
 temporary directory, then invokes ffmpeg to produce a video-on-demand HLS playlist.
 """
@@ -31,7 +31,7 @@ def run(cfg: Config) -> Path:
     else:
         basemap_img = Image.new("RGBA", (cfg.width, cfg.height), (0, 0, 0, 255))
 
-    frames_dir = cfg.frames_path or Path(tempfile.mkdtemp(prefix="veda_timelapse_frames_"))
+    frames_dir = cfg.frames_path or Path(tempfile.mkdtemp(prefix="stac_timelapse_frames_"))
     frames_dir.mkdir(parents=True, exist_ok=True)
     LOGGER.info("Writing frames to %s", frames_dir)
 

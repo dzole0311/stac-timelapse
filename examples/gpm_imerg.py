@@ -2,7 +2,7 @@
 GPM IMERG daily precipitation over the Atlantic hurricane belt, Aug-Sep 2024.
 Renders through titiler-cmr using the CMR collection concept ID.
 """
-from veda_timelapse import Config, run
+from stac_timelapse import Config, run
 
 cfg = Config(
     use_cmr=True,

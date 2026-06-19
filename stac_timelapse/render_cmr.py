@@ -1,6 +1,6 @@
 """Render STAC datasets through titiler-cmr (xarray/rasterio backend).
 
-This mode queries STAC collections via titiler-cmr instead of the VEDA Raster API.
+This mode queries STAC collections via titiler-cmr instead of the Raster API.
 It is useful for collections such as GPM IMERG that are served through titiler-cmr's
 xarray or rasterio backends. The returned PNG is post-processed locally so very
 bright dry/no-data pixels can reveal the basemap underneath.

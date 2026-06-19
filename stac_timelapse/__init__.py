@@ -1,4 +1,4 @@
-"""Tools for turning VEDA/STAC datasets into HLS video streams."""
+"""Tools for turning STAC datasets into HLS video streams."""
 
 from __future__ import annotations
 

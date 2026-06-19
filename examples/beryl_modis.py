@@ -4,8 +4,8 @@ MODIS Aqua Band 31 (11µm thermal IR): cold = high cloud tops = intense convecti
 16 daily frames showing the storm's Atlantic-to-Gulf track and landfall.
 """
 
-from veda_timelapse.config import Config
-from veda_timelapse.pipeline import run
+from stac_timelapse.config import Config
+from stac_timelapse.pipeline import run
 
 cfg = Config(
     collection_id="modis_mosaic-cyclone-beryl",

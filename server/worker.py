@@ -2,7 +2,7 @@
 
 Each message body is a JSON object with keys:
   job_id     — UUID string
-  config     — veda_timelapse.Config fields as a dict
+  config     — stac_timelapse.Config fields as a dict
   s3_prefix  — S3 key prefix for this job's output
 
 On success, HLS files are uploaded to s3://<S3_BUCKET>/<s3_prefix>/.
@@ -57,10 +57,10 @@ def _process(message: dict) -> None:
 
     LOGGER.info("Processing job %s", job_id)
 
-    from veda_timelapse.config import Config
-    from veda_timelapse import pipeline, s3 as s3_mod
+    from stac_timelapse.config import Config
+    from stac_timelapse import pipeline, s3 as s3_mod
 
-    with tempfile.TemporaryDirectory(prefix=f"veda_{job_id}_") as tmp:
+    with tempfile.TemporaryDirectory(prefix=f"stac_{job_id}_") as tmp:
         config_dict["output_dir"] = tmp
         config_dict["s3_bucket"] = None  # upload manually below
         cfg = Config(**config_dict)

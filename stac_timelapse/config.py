@@ -1,8 +1,8 @@
-"""Configuration for the VEDA immersive rendering pipeline.
+"""Configuration for the stac-timelapse rendering pipeline.
 
 The dataclass is the public contract for CLI and Python runs. It keeps
 service URLs, cache locations, rendering controls, annotation settings, and
-ffmpeg options in one place so deployments can target public VEDA services,
+ffmpeg options in one place so deployments can target different STAC services,
 self-hosted titiler instances, or offline cache locations without changing
 module internals.
 """
@@ -42,7 +42,7 @@ class Config:
     cmr_date_frequency: str = "daily"
     cmr_dry_luminance_threshold: float = 230.0
 
-    cache_dir: str = "~/.cache/veda_timelapse"
+    cache_dir: str = "~/.cache/stac_timelapse"
     download_retries: int = 3
     download_timeout: int = 180
 

@@ -1,8 +1,8 @@
-"""Query VEDA-compatible STAC APIs for renderable items.
+"""Query STAC APIs for renderable items.
 
 Public runs use pystac-client first for standard STAC behavior. Authenticated
 runs use requests directly so bearer tokens are carried through paginated
-searches. VEDA collections often publish interval items with ``datetime=null``,
+searches. Collections often publish interval items with ``datetime=null``,
 so sorting and labels always fall back to ``start_datetime``.
 """
 

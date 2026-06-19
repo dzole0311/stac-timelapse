@@ -1,6 +1,6 @@
 """Register STAC item searches and fetch rendered Raster API PNG frames.
 
-VEDA STAC items can use either ``datetime`` or interval fields such as
+STAC items can use either ``datetime`` or interval fields such as
 ``start_datetime``. Search registration therefore pins requests by item id
 instead of relying on datetime matching. Callers that render many frames may
 pass a per-run cache to avoid duplicate registrations without leaking state

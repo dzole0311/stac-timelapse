@@ -19,9 +19,9 @@ def configure_matplotlib_env() -> None:
     if os.environ.get("MPLCONFIGDIR"):
         return
 
-    path = Path.home() / ".cache" / "veda_timelapse" / "matplotlib"
+    path = Path.home() / ".cache" / "stac_timelapse" / "matplotlib"
     try:
         path.mkdir(parents=True, exist_ok=True)
     except OSError:
-        path = Path(tempfile.mkdtemp(prefix="veda_timelapse_mpl_"))
+        path = Path(tempfile.mkdtemp(prefix="stac_timelapse_mpl_"))
     os.environ["MPLCONFIGDIR"] = str(path)
